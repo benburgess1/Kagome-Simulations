@@ -1,0 +1,45 @@
+\documentclass[12pt]{report}
+\input{PackagesAndSettings}
+
+\newcommand{\detailtexcount}[1]{%
+  \immediate\write18{texcount -merge -sum -q #1.tex output.bbl > #1.wcdetail }%
+  \verbatiminput{#1.wcdetail}%
+}
+
+\newcommand{\quickwordcount}[1]{%
+  \immediate\write18{texcount -1 -sum -merge -q #1.tex output.bbl > #1-words.sum }%
+  \input{#1-words.sum} words%
+}
+
+\begin{document}
+
+%TC:ignore
+\pagenumbering{roman}
+\include{TitlePage}
+\addcontentsline{toc}{chapter}{Abstract}
+\include{Abstract}
+\setcounter{page}{3}
+\pagestyle{plain}
+\tableofcontents
+\pagestyle{fancy}
+%TC:endignore
+
+\include{Chapter1}
+\include{Chapter2}
+\include{Chapter3}
+\include{Chapter4}
+\include{Chapter5}
+\include{Chapter6}
+
+%TC:ignore
+\appendix
+\include{AppendixA}
+\include{AppendixB}
+\include{AppendixC}
+\include{AppendixD}
+%TC:endignore
+%TC:ignore
+%\detailtexcount{main}
+\printbibliography[heading=bibintoc]
+%TC:endignore
+\end{document}

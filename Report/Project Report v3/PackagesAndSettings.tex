@@ -1,0 +1,72 @@
+\usepackage [left=2cm, right=3cm, top=2.5cm]{geometry}
+\setlength{\headheight}{14.49998pt}%\geometry{showframe}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.~ #1}{}}
+\fancyhead{}
+\fancyhead[R]{\nouppercase{\leftmark\hfill\rightmark}}
+\usepackage{tabularx}
+\usepackage{titling}
+\usepackage{abstract}
+\renewcommand{\abstractnamefont}{\normalfont\Large\bfseries}
+
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \interlinepenalty\@M
+    \Huge\bfseries  \thechapter.\quad #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[nodayofweek]{datetime}
+
+\linespread{1.5}
+%\expandafter\def\expandafter\normalsize\expandafter{%
+ % \normalsize  
+  %\setlength\abovedisplayskip{1ex}
+  %\setlength\belowdisplayskip{1ex}
+  %\setlength\abovedisplayshortskip{1ex}
+  %\setlength\belowdisplayshortskip{1ex}
+%}
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage[backend=biber,style=numeric-comp,sorting=none]{biblatex}
+\usepackage{csquotes}
+\usepackage[T1]{fontenc}
+%\emergencystretch=1em
+%\usepackage{graphicx}
+\usepackage{caption}
+%\usepackage{subcaption}
+\usepackage{floatrow}
+\usepackage[labelformat=simple]{subfig}
+\floatsetup[figure]{style=plain,subcapbesideposition=top}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+%\captionsetup[sub]{labelformat=simple}
+\graphicspath{ {./Figures/} }
+%\DeclareGraphicsExtensions{.png,.pdf}
+\DeclareGraphicsExtensions{.pdf,.png}
+\addbibresource{References.bib}
+\usepackage{verbatim}
+
+\newcommand{\appropto}{\mathrel{\vcenter{
+  \offinterlineskip\halign{\hfil$##$\cr
+    \propto\cr\noalign{\kern2pt}\sim\cr\noalign{\kern-2pt}}}}}
+
